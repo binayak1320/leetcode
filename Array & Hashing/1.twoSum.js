@@ -43,6 +43,7 @@ class Solution {
             }
             prevMap.set(nums[i], i)
         }
+        return []
     }
 }
 

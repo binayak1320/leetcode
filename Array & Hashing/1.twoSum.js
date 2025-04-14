@@ -14,6 +14,27 @@ class Solution {
         }
         return []
     }
+    //Sorting method
+    twoSum_Sorting(nums, target) {
+        let A = [];
+        for(let i = 0; i < nums.length; i++){
+            A.push([nums[i], i])
+        }
+        A.sort((a, b) => a[0] - b[0]);
+
+        let i = 0, j = nums.length - 1;
+        while(i<j){
+            let sum = A[i][0] + A[j][0];
+            if(sum === target){
+                return [A[i][1], A[j][1]]
+            }else if(sum < target){
+                i++;
+            }else{
+                j--;
+            }
+        }
+        return []
+    }
     //Hashmap (TWO pass)
     twoSum_hashMap_TwoPass(nums, target) {
         const indices = {};
@@ -59,3 +80,6 @@ console.log(result_map_twoPass); // Output: [0, 1]
 
 const result_twoSum_hashMap_OnePass = solution.twoSum_hashMap_OnePass(nums, target);
 console.log(result_twoSum_hashMap_OnePass); // Output: [0, 1]
+
+const result_twoSum_Sorting = solution.twoSum_Sorting(nums, target);
+console.log(result_twoSum_Sorting); // Output: [0, 1]
